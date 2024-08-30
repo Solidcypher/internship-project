@@ -6,7 +6,7 @@ class LoginPage(BasePage):
     URL = 'https://soft.reelly.io/sign-in'
     EMAIL_FIELD = (By.ID, 'email-2')
     PASSWORD_FIELD = (By.ID, 'field')
-    EMAIL = 'marcopolo.skylight490@passin-box.com'
+    EMAIL = '<EMAIL>'
     PASSWORD = '<PASSWORD>'
     LOGIN_BUTTON = (By.CSS_SELECTOR, "[wized='loginButton']")
 

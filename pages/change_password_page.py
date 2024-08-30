@@ -12,6 +12,7 @@ class ChangePasswordPage(BasePage):
     CHANGE_PASSWORD_BTN = (By.CSS_SELECTOR, "a[wized='changePasswordButton']")
 
     def input_test_password(self):
+        self.wait_for_element_appear(*self.CHANGE_PASSWORD_TXT)
         self.input_text(self.TEST_PASSWORD, *self.NEW_PASSWORD_FIELD)
         self.input_text(self.TEST_PASSWORD, *self.REPEAT_PASSWORD_FIELD)
 

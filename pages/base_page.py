@@ -35,6 +35,12 @@ class BasePage:
             message=f'Element by locator {locator} not clickable'
         ).click()
 
+    def wait_for_element_appear(self, *locator):
+        self.wait.until(
+            EC.visibility_of_element_located(locator),
+            message=f'Element by locator {locator} not visible'
+        )
+
     def verify_text(self, expected_text, *locator):
         actual_text = self.driver.find_element(*locator).text
         assert actual_text == expected_text, f'Expected {expected_text} did not match actual {actual_text}'
