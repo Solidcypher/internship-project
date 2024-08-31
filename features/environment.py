@@ -15,9 +15,9 @@ def browser_init(context):
     # service = Service(driver_path)
     # context.driver = webdriver.Chrome(service=service)
 
-    driver_path = GeckoDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Firefox(service=service)
+    # driver_path = GeckoDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Firefox(service=service)
 
     ### HEADLESS MODE CHROME ####
     # options = webdriver.ChromeOptions()
@@ -27,6 +27,15 @@ def browser_init(context):
     #     options=options,
     #     service=service
     # )
+
+    ### HEADLESS MODE FIREFOX ####
+    options = webdriver.FirefoxOptions()
+    options.add_argument('--headless')
+    service = Service(GeckoDriverManager().install())
+    context.driver = webdriver.Chrome(
+        options=options,
+        service=service
+    )
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
