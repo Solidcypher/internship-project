@@ -23,6 +23,9 @@ class BasePage:
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
 
+    def scroll_down(self, amount):
+        self.driver.execute_script(f"window.scrollBy(0, {amount})", "")
+
     def wait_until_clickable(self, *locator):
         self.wait.until(
             EC.element_to_be_clickable(locator),

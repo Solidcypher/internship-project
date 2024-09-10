@@ -13,5 +13,6 @@ class SettingsPage(BasePage):
         to be clickable still wasn't enough time. Without the sleep it would go back to the sign-in page and then
         couldn't find the element. Please remove the sleep and test it yourself to see if it does the same thing.
         """
-        sleep(4)
+        self.scroll_down(500)
+        sleep(3)
         self.wait_and_click(*self.CHANGE_PASSWORD_LINK)
