@@ -6,8 +6,8 @@ class LoginPage(BasePage):
     URL = 'https://soft.reelly.io/sign-in'
     EMAIL_FIELD = (By.ID, 'email-2')
     PASSWORD_FIELD = (By.ID, 'field')
-    EMAIL = 'marcopolo.skylight490@passin-box.com'
-    PASSWORD = 'VKtyjvpLNEkA79S8PcgTsx'
+    EMAIL = '<EMAIL>'
+    PASSWORD = '<PASSWORD>'
     LOGIN_BUTTON = (By.CSS_SELECTOR, "[wized='loginButton']")
 
     def open_login_page(self):
