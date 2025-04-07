@@ -6,6 +6,11 @@ def click_settings(context):
     context.app.home_page.click_settings()
 
 
+@when('Click on Secondary')
+def click_secondary(context):
+    context.app.home_page.click_secondary_listings()
+
+
 @when('Click on Main Menu')
 def click_main_menu(context):
     context.app.home_page.click_main_menu()

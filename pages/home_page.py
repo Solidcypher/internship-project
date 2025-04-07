@@ -7,6 +7,7 @@ class HomePage(BasePage):
     SETTINGS_LINK = (By.XPATH, "//div[contains(text(),'Settings')]")
     MAIN_MENU_BTN = (By.CSS_SELECTOR, ".circle-gradient")
     USER_PROFILE_BTN = (By.CSS_SELECTOR, ".menu-photo_avatar")
+    SECONDARY_BTN = (By.CSS_SELECTOR, "[href='/secondary-listings']")
 
     def click_settings(self):
         self.wait_and_click(*self.SETTINGS_LINK)
@@ -15,6 +16,9 @@ class HomePage(BasePage):
         # I only needed this sleep for when I did the mobile testing on browserstack.
         # sleep(4)
         self.wait_and_click(*self.MAIN_MENU_BTN)
+
+    def click_secondary_listings(self):
+        self.wait_and_click(*self.SECONDARY_BTN)
 
     def click_user_profile_image(self):
         # I only needed this sleep for when I did the mobile testing on browserstack.
