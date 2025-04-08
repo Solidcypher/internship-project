@@ -1,5 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
 
 
 class BasePage:
@@ -23,8 +24,20 @@ class BasePage:
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
 
+    def wait_to_input_text(self, text, *locator):
+        self.wait.until(
+            EC.visibility_of_element_located(locator),
+            message=f'Element by locator {locator} not visible'
+        ).send_keys(text)
+
     def scroll_down(self, amount):
         self.driver.execute_script(f"window.scrollBy(0, {amount})", "")
+
+    # def click_through_all_pages(self, page_number, *locator):
+    #     for i in range(0, int(page_number)):
+    #         self.driver.execute_script(f"window.scrollBy(0, 5000)", "")
+    #         sleep(3)
+    #         self.wait_and_click(locator)
 
     def wait_until_clickable(self, *locator):
         self.wait.until(
