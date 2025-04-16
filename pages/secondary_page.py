@@ -17,11 +17,11 @@ class SecondaryPage(BasePage):
     CURRENT_PG = (By.CSS_SELECTOR, "[wized='currentPageProperties']")
     TOTAL_PG = (By.CSS_SELECTOR, "[wized='totalPageProperties']")
 
-    def click_through_all_pages(self):
+    def click_through_all_secondary_pages(self):
         total_page = int(self.driver.find_element(*self.TOTAL_PG).text)
         for i in range(1, int(total_page) + 1):
             self.driver.execute_script(f"window.scrollBy(0, 5000)", "")
-            sleep(2)
+            sleep(1)
             if i == int(total_page):
                 break
             self.wait_and_click(*self.NEXT_PG_BTN)
@@ -49,7 +49,7 @@ class SecondaryPage(BasePage):
     def verify_card_want_to_buy_tag(self):
         for cards in self.LISTING_CARDS:
             self.verify_text("Want to buy", *self.WANT_BUY_TAG)
-            self.click_through_all_pages()
+            self.click_through_all_secondary_pages()
 
     def verify_card_price_range(self, number1, number2):
         price_element = self.find_element(*self.CARD_UNIT_PRICE)
@@ -59,4 +59,4 @@ class SecondaryPage(BasePage):
             assert int(number1) <= stripped_price <= int(number2), (
                 f"Price {stripped_price} in not within the expected range (1,200,000 - 2,000,000)"
             )
-            self.click_through_all_pages()
+            self.click_through_all_secondary_pages()

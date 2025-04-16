@@ -33,12 +33,6 @@ class BasePage:
     def scroll_down(self, amount):
         self.driver.execute_script(f"window.scrollBy(0, {amount})", "")
 
-    # def click_through_all_pages(self, page_number, *locator):
-    #     for i in range(0, int(page_number)):
-    #         self.driver.execute_script(f"window.scrollBy(0, 5000)", "")
-    #         sleep(3)
-    #         self.wait_and_click(locator)
-
     def wait_until_clickable(self, *locator):
         self.wait.until(
             EC.element_to_be_clickable(locator),
