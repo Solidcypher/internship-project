@@ -14,12 +14,12 @@ Feature: Reelly Settings page tests
 #    When Input test password into input fields
 #    Then Verify Change Password button is available to click
 
-  Scenario: User sees 12 options on settings page
+  Scenario: User sees 13 options on settings page
     Given Open Reelly login page
     When Input email address
     And Input password
     And Click on login button
     And Click on Settings
-    Then Verify there are 12 settings options
+    Then Verify there are 13 settings options
     Then Verify Connect the Company button is available
 

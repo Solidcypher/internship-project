@@ -6,8 +6,10 @@ from time import sleep
 class SettingsPage(BasePage):
     CHANGE_PASSWORD_LINK = (By.CSS_SELECTOR, "[href='/set-new-password']")
     # CHANGE_PASSWORD_LINK2 = (By.XPATH, "//div[contains(text(),'Change password')]")
-    SETTINGS_CELLS = (By.XPATH, "//a[@class='page-setting-block w-inline-block']")
-    CONNECT_COMPANY_BTN = (By.CSS_SELECTOR, "[href='/book-presentation']")
+    # SETTINGS_CELLS = (By.XPATH, "//a[@class='page-setting-block w-inline-block']")
+    SETTINGS_CELLS = (By.CLASS_NAME, "setting-text")
+    CONNECT_COMPANY_BTN = (By.CSS_SELECTOR, "[href='/buy-plan-company']")
+    CLIENT_MODE_BTN = (By.CSS_SELECTOR, "[wized='clientModeButton']")
 
     def click_change_password_option(self):
         """
@@ -21,10 +23,8 @@ class SettingsPage(BasePage):
 
     def verify_settings_options(self, number):
         options = self.find_elements(*self.SETTINGS_CELLS)
-
         assert len(options) == int(number), f"Expected {number} options cells but got {len(options)}"
 
     def verify_connect_the_company_button(self):
-        connect_btns = self.find_elements(*self.CONNECT_COMPANY_BTN)
-
-        assert connect_btns[1], f"Expected Connect Company Button but got {connect_btns[1]}"
+        connect_btn = self.find_elements(*self.CONNECT_COMPANY_BTN)
+        assert connect_btn[1], f"Expected Connect Company Button but got {connect_btn[1]}"
